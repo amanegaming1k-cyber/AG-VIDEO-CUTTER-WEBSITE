@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <title>AG VIDEO CUTTER — Split into 4 parts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AG Video Cutter home">
+      <span class="brand-icon">✂</span><span><b>AG VIDEO CUTTER</b><small>PRECISION VIDEO SPLITTER</small></span>
+    </a>
+    <span class="status"><i></i> READY</span>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span></span> SIMPLE. FAST. FOUR PARTS.</div>
+      <h1>One video.<br><span>Four equal parts.</span></h1>
+      <p class="intro">Upload a video and split it into four equal-duration clips. Track progress and download each part separately.</p>
+    </section>
+
+    <section class="workspace">
+      <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Choose or drop a video">
+        <div class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15.5v3A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5v-3"/></svg></div>
+        <h2>Drop your video here</h2>
+        <p>or tap to browse files</p>
+        <div class="file-types">MP4 · MOV · MKV · WEBM · OTHER FFmpeg-SUPPORTED FORMATS</div>
+        <input id="fileInput" type="file" accept="video/*,.mkv,.mov,.avi,.webm,.m4v" hidden>
+      </div>
+
+      <div id="selectedFile" class="selected-file hidden">
+        <div class="file-symbol">VID</div><div class="file-info"><b id="fileName">video.mp4</b><span id="fileSize">0 MB</span></div>
+        <button id="removeFile" class="icon-button" type="button" aria-label="Remove selected video">×</button>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec"><span class="spec-icon blue">◫</span><div><b>4 equal parts</b><small>By video duration</small></div></div>
+        <div class="spec"><span class="spec-icon purple">↗</span><div><b>Separate downloads</b><small>MP4 output</small></div></div>
+        <div class="spec"><span class="spec-icon blue">▰</span><div><b>Live progress</b><small>Upload + processing</small></div></div>
+      </div>
+
+      <div class="notice"><span>ⓘ</span><p><b>Large-video note:</b> Render Free is not reliable for 500 MB–2 GB processing. It has limited RAM/CPU, temporary storage and request/runtime constraints. This site uploads in chunks to reduce single-request problems, but it cannot guarantee 2 GB uploads on free hosting.</p></div>
+
+      <button id="startButton" class="primary-button" type="button" disabled><span>✂</span> Split into 4 parts <span class="arrow">→</span></button>
+      <div id="statusArea" class="status-area hidden" aria-live="polite">
+        <div class="status-line"><span id="statusText">Preparing upload…</span><b id="percentText">0%</b></div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <p id="statusDetail" class="status-detail">Keep this page open while your video is processed.</p>
+        <button id="cancelButton" class="secondary-button" type="button">Cancel job</button>
+      </div>
+
+      <section id="results" class="results hidden">
+        <div class="results-heading"><div><span class="eyebrow">PROCESS COMPLETE</span><h2>Your four clips</h2></div><span class="complete-mark">✓</span></div>
+        <div id="partsList" class="parts-list"></div>
+        <button id="downloadAll" class="secondary-button" type="button">Download all parts (one by one)</button>
+      </section>
+      <p class="privacy-note">Files are processed on the deployed backend and may be removed when the service restarts. Do not upload private or sensitive videos to a server you do not control.</p>
+    </section>
+    <footer><span>AG VIDEO CUTTER</span><span>BUILT FOR CREATORS</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
